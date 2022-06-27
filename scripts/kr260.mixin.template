@@ -1,0 +1,21 @@
+build:
+  kr260:
+    cmake-args:
+      - "-DCMAKE_SYSTEM_NAME=Linux"
+      - "-DCMAKE_SYSTEM_VERSION=1"
+      - "-DCMAKE_SYSTEM_PROCESSOR=aarch64"
+      - "-CMAKE_LIBRARY_ARCHITECTURE=aarch64-linux-gnu"
+      - "-DCMAKE_C_COMPILER=/usr/bin/aarch64-linux-gnu-gcc"
+      - "-DCMAKE_CXX_COMPILER=/usr/bin/aarch64-linux-gnu-g++"
+      - "-DCMAKE_SYSROOT=ARG1_FIRMWARE_DIR/sysroots/aarch64-xilinx-linux"      
+      - "-DCMAKE_FIND_ROOT_PATH=ARG3_INSTALL_DIR-kr260-ubuntu;ARG1_FIRMWARE_DIR/sysroots/aarch64-xilinx-linux/opt/ros/humble"
+      - "-DCMAKE_INSTALL_RPATH=ARG1_FIRMWARE_DIR/sysroots/aarch64-xilinx-linux/usr/lib"
+      - "-DCMAKE_INSTALL_RPATH_USE_LINK_PATH=TRUE"
+      - "-DCMAKE_FIND_ROOT_PATH_MODE_PROGRAM=NEVER"
+      - "-DCMAKE_FIND_ROOT_PATH_MODE_PACKAGE=ONLY"
+      - "-DCMAKE_FIND_ROOT_PATH_MODE_LIBRARY=ONLY"
+      - "-DCMAKE_FIND_ROOT_PATH_MODE_INCLUDE=ONLY"
+      - "-DPYTHON_SOABI=cpython-37m-aarch64-linux-gnu"
+      - "-DTHREADS_PTHREAD_ARG=0"
+      - "--no-warn-unused-cli"
+      - "-DROS_VITIS_TARGET=TRUE"

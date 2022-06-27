@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+  <name>acceleration_firmware_kr260</name>
+  <version>1.0.0</version>
+  <description>
+    AMD's KR260 vendor-specific Ubuntu 22.04 cross-compilation firmware.
+    The package contains firmware artifacts to accelerate ROS 2 robotic applications.
+  </description>
+  <maintainer email="victor@accelerationrobotics.com">Víctor Mayoral Vilches</maintainer>
+  <author email="victor@accelerationrobotics.com">Víctor Mayoral Vilches</author>
+  <license>Apache License 2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
