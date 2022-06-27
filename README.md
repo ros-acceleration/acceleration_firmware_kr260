@@ -15,14 +15,18 @@ This repository provides AMD/Xilinx's firmware artifacts for the KR260 board usi
 To fetch it from sources, proceed as follows to include the Ubuntu 22.04 resources:
 
 ```bash
-
+git clone https://github.com/ros-acceleration/acceleration_firmware_kr260
+wget https://people.canonical.com/~platform/images/xilinx/kria-ubuntu-22.04/iot-limerick-kria-classic-desktop-2204-x06-20220614-78-sysroot.tar.xz -P acceleration_firmware_kr260/firmware/  # will take a few seconds
 ```
 
 ### Fetch using VCS
-When leveraging `vcs`, just use one of the official release links, which should include the Ubuntu 22.04 resources. E.g.
+When leveraging `vcs`, just use one of the official release links, which should include the Ubuntu 22.04 resources. E.g. include the following in your `.repos` file:
 
 ```bash
-
+repositories:
+  firmware/acceleration_firmware_kr260:
+    type: zip
+    url: https://github.com/ros-acceleration/acceleration_firmware_kr260/releases/download/v1.0.0/acceleration_firmware_kr260.zip
 ```
 
 ## Hardware Acceleration capabilities
