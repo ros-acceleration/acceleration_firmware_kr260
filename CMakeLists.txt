@@ -53,6 +53,15 @@ if (NOT EXISTS ${FIRMWARE_DIR})
     DESTINATION
       ${FIRMWARE_DIR}
   )
+
+  # Deploy also patches for firmware and related scripts
+  #
+  install(
+    DIRECTORY
+      patches/
+    DESTINATION
+      ${FIRMWARE_DIR}/patches
+  )  
 endif()  # NOT EXISTS ${FIRMWARE_DIR}
 
 # NOTE:
@@ -76,8 +85,8 @@ install(
     ${CMAKE_BINARY_DIR}
 )
 install(SCRIPT "${CMAKE_SOURCE_DIR}/cmake/generate_mixin.cmake")
+install(SCRIPT "${CMAKE_SOURCE_DIR}/cmake/ros2_cross.cmake")
 install(SCRIPT "${CMAKE_SOURCE_DIR}/cmake/colcon_ignore.cmake")
-
 
 # kept so that other packages can depend on it
 ament_package()

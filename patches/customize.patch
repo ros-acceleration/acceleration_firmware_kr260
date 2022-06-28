@@ -1,0 +1,62 @@
+--- customize.sh.orig	2022-06-28 10:08:17.044428956 +0200
++++ customize.sh	2022-06-28 10:12:18.120721347 +0200
+@@ -46,6 +46,49 @@
+                  LC_ALL=C sort -r)
+ }
+ 
++# Installs ROS 2 Humble
++install_ros2_humble()
++# $1: suite
++{
++    local sources="deb [arch=arm64 signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $1 main"
++    local setup_pkgs=(
++       software-properties-common
++	curl
++	gnupg
++	lsb-release
++    )
++    local key_hash=C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
++    local pkgs=(
++        ros-humble-desktop ros-humble-image-common
++    )
++
++    # get key from Open Robotics
++    local opts='--no-install-recommends -y'
++    chroot . apt update
++    chroot . sh -c "DEBIAN_FRONTEND=noninteractive apt install $opts ${setup_pkgs[*]}"
++    chroot . sh -c "curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg"
++
++    printf "%s\n" "$sources" >> etc/apt/sources.list.d/devel.list
++    chroot . apt update
++    chroot . sh -c "DEBIAN_FRONTEND=noninteractive apt install $opts ${pkgs[*]}"
++    rm etc/apt/sources.list.d/devel.list
++    chroot . apt update
++}
++
++# Install the Linux Tracing Toolkit next generation (LTTng)
++install_lttng()
++{
++    local pkgs=(
++	liblttng-ust-dev 
++	python3-lttng 
++	lttng-tools
++    )
++    local opts='--no-install-recommends -y'
++    pkgs+=("$@")
++    chroot . apt update
++    chroot . sh -c "DEBIAN_FRONTEND=noninteractive apt install $opts ${pkgs[*]}"
++}
++
+ # Installs a list of packages.
+ # $1..$#: Additional packages can be specified as arguments
+ install_packages()
+@@ -219,6 +262,9 @@
+ prepare_chroot
+ # TODO there is no gstreamer jammy release yet
+ #install_xilinx_gstreamer "$suite"
++install_ros2_humble "$suite"
++install_lttng
++
+ if [ "$ppa_src" == "public" ]; then
+     install_packages "$@" "${pkgs_in_private_archive[@]}"
+ else
