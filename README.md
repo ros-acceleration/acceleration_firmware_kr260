@@ -26,7 +26,7 @@ When leveraging `vcs`, just use one of the official release links, which should 
 repositories:
   firmware/acceleration_firmware_kr260:
     type: zip
-    url: https://github.com/ros-acceleration/acceleration_firmware_kr260/releases/download/v1.0.0/acceleration_firmware_kr260.zip
+    url: https://github.com/ros-acceleration/acceleration_firmware_kr260/releases/download/v1.1.0/acceleration_firmware_kr260.zip
 ```
 
 ## Hardware Acceleration capabilities
