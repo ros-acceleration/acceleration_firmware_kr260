@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdx:platform sdx:vendor="xilinx.com"
+              sdx:library="sdx"
+              sdx:name="kv260_custom_platform"
+              sdx:version="1.0"
+              sdx:schemaVersion="1.0"
+              xmlns:sdx="http://www.xilinx.com/sdx">
+    <sdx:description>
+A custom platform ZCU104 platform
+    </sdx:description>
+    <sdx:systemConfigurations sdx:defaultConfiguration="kv260_custom_platform">
+        <sdx:configuration sdx:name="kv260_custom_platform"
+                           sdx:displayName="kv260_custom_platform"
+                           sdx:defaultProcessorGroup="xrt"
+                           sdx:runtimes="ocl">
+            <sdx:description>kv260_custom_platform</sdx:description>
+            <sdx:bootImages sdx:default="standard">
+                <sdx:image sdx:name="standard"
+                            sdx:bif="kv260_custom_platform/boot/linux.bif"
+                            sdx:imageData="kv260_custom_platform/xrt/image"
+                            sdx:bootmode="sd"
+                            sdx:mountPath="/mnt"
+                            sdx:readme="kv260_custom_platform/boot/generic.readme"
+                            sdx:qemuArguments="kv260_custom_platform/qemu/pmu_args.txt:kv260_custom_platform/qemu/qemu_args.txt"
+                            />
+                <sdx:image sdx:name="xrt"
+                            sdx:bif="kv260_custom_platform/boot/linux.bif"
+                            sdx:imageData="kv260_custom_platform/xrt/image"
+                            sdx:mountPath="/mnt"
+                            sdx:readme="kv260_custom_platform/boot/generic.readme"
+                            sdx:qemuArguments="kv260_custom_platform/xrt/qemu/pmu_args.txt:kv260_custom_platform/xrt/qemu/qemu_args.txt"
+                            />
+            </sdx:bootImages>
+            <sdx:processorGroup sdx:name="xrt"
+                                sdx:displayName="xrt"
+                                sdx:cpuType="cortex-a53">
+                <sdx:os sdx:name="linux"
+                        sdx:displayName="linux"
+                />
+            </sdx:processorGroup>
+        </sdx:configuration>
+    </sdx:systemConfigurations>
+</sdx:platform>
