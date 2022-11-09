@@ -2,6 +2,13 @@
 Changelog for package acceleration_firmware_kr260
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+v1.1.1 (2022-11-09)
+-------------------
+* Release v1.1.1
+* Add platform of KV260 for testing kernel build
+* Update README for KRS 1.1
+* Update to v1.1.0 in README
+
 v1.1.0 (2022-10-04)
 -------------------
 * Release v1.1.0
